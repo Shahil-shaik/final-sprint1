@@ -16,7 +16,7 @@ public class DaoTest {
 	@Test
 	public void AcessTestRepoTest1() {
 		test obj = new test();
-		BigInteger testId=new BigInteger("123456");
+		BigInteger testId=new BigInteger("111222");
 		obj.setTestId(testId);
 		AccessTestRepo.putTestObject(obj);
 		assertEquals(obj,AccessTestRepo.getTestObject(testId));
@@ -24,20 +24,20 @@ public class DaoTest {
 	@Test
 	public void AcessTestRepoTest2() {
 		test obj = new test();
-		BigInteger testId=new BigInteger("78910");
+		BigInteger testId=new BigInteger("111122");
 		obj.setTestId(testId);
 		AccessTestRepo.putTestObject(obj);
-		assertNotEquals(obj,AccessTestRepo.getTestObject(new BigInteger("456123")));
+		assertNotEquals(obj,AccessTestRepo.getTestObject(new BigInteger("112233")));
 	}
 	@Test
 	public void AccessUserrepoTest1() {
-		BigInteger testId=new BigInteger("12345");
-		AccessUserRepo.putData((long) 11615004, testId);
-		assertEquals(testId,AccessUserRepo.getTestId(11615004));
+		BigInteger testId=new BigInteger("123456");
+		AccessUserRepo.putData((long) 11611111, testId);
+		assertEquals(testId,AccessUserRepo.getTestId(11611111));
 	}
 	@Test
 	public void AccessUserrepoTest2() {
-		BigInteger testId=new BigInteger("54321");
+		BigInteger testId=new BigInteger("111111");
 		AccessUserRepo.putData((long) 11615101, testId);
 		assertNotEquals(testId,AccessUserRepo.getTestId(11615004));
 	}
@@ -45,17 +45,17 @@ public class DaoTest {
 	public void AcessUserIdRepo_getUserObjectTest1() {
 		User obj = new User();
 		obj.setIsAdmin(false);
-		obj.setUserId(11615915);
-		obj.setUserName("shahil"); 
+		obj.setUserId(11612222);
+		obj.setUserName("random"); 
 		obj.setUserPassword("Abc-123");
 		AccessUserIdRepo.putUserObject(obj);
-		assertEquals(obj,AccessUserIdRepo.getUserObject(11615915));
+		assertEquals(obj,AccessUserIdRepo.getUserObject(11612222));
 	}
 	@Test
 	public void AcessUserIdRepo_getUserObjectTest2() {
 		User obj = new User();
 		obj.setIsAdmin(false);
-		obj.setUserId(11615916);
+		obj.setUserId(11613333);
 		obj.setUserName("satish"); 
 		obj.setUserPassword("Abc-123");
 		AccessUserIdRepo.putUserObject(obj);

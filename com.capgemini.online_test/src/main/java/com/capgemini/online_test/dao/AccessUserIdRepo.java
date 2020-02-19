@@ -16,6 +16,8 @@ public class AccessUserIdRepo {
 		Userid_Rep.putData(obj);
 	}
 	public static void putUserObject() {
-		Userid_Rep.putData(new User("harish",11605004,false,null,"Abc-123"));
+		Userid_Rep.putData(new User("shahil",11615915,true,null,"Abc-1234"));
+		Userid_Rep.putData(new User("harish",11605004,false,null,"Abc-1235"));
+		Userid_Rep.putData(new User("satish",11604993,false,null,"Abc-1236"));
 	}
 }

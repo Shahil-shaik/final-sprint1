@@ -18,5 +18,9 @@ public class  AccessTestRepo {
 		obj.setTestId(new BigInteger("123456"));
 		obj.setTestTitle("CA-1");
 		Test_Rep.putData(obj);
+		test obj1 = new test();
+		obj1.setTestId(new BigInteger("112233"));
+		obj1.setTestTitle("CA-2");
+		Test_Rep.putData(obj1);
 	}
 }

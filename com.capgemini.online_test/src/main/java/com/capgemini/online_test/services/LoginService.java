@@ -13,6 +13,7 @@ public class LoginService {
 		try {
 			if(obj==null) {
 				throw new MyException("User doesn't exist/wrong userId");
+			//
 			}
 		try {
 			if(password.equals(obj.getUserPassword())) {

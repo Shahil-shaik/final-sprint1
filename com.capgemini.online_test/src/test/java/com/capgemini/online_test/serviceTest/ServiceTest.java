@@ -20,20 +20,40 @@ import com.capgemini.online_test.services.LoginService;
 import com.capgemini.online_test.util.Userid_Rep;
 
 public class ServiceTest {
+	LoginService object=new LoginService();
+	@Test
+	public void AssignTestServiceTest1() {
+		User obj = new User();
+		obj.setIsAdmin(false);
+		obj.setUserId(11614444);
+		obj.setUserName("ramesh"); 
+		obj.setUserPassword("Abc-123");
+		AccessUserIdRepo.putUserObject(obj);
+		test obj1 = new test();
+		BigInteger testId=new BigInteger("112222");
+		obj1.setTestId(testId);
+		AccessTestRepo.putTestObject(obj1);
+		AssignTestService.assignTest((long) 11614444, testId);
+		assertEquals(testId,AccessUserRepo.getTestId(11614444));
+	}
+	@Test
+	public void AssignTestServiceTest2() {
+		assertNotEquals(new BigInteger("112232"),AccessUserRepo.getTestId(11614444));
+	}
 	@Test
 	public void LoginServiceTest1() {
-		User obj = new User("shahil",11615915,false,null,"Abc-123");
+		User obj = new User("rajesh",11615555,false,null,"Abc-12345");
 		Userid_Rep.putData(obj);
-		assertEquals(11615915,LoginService.checkLogin(11615915, "Abc-123"));
+		assertEquals(11615555,LoginService.checkLogin(11615555, "Abc-12345"));
 		}
 	@Test 
 	public void LoginServiceTest2() {
-		MyException exp=assertThrows(
+		Throwable exp=assertThrows(
 				MyException.class,()->{
-					LoginService.checkLogin((long)11615923,"Abc-123");
+					LoginService.checkLogin((long)11614923,"Abc-1234");
 				}
 				);
-		assertEquals("Incorrect UserI / password",exp.getMessage());
+		assertNotEquals("User doesn't exist/wrong userId",exp.getMessage());
 	}
 	@Test 
 	public void LoginServiceTest3() {
@@ -44,34 +64,5 @@ public class ServiceTest {
 				);
 		assertEquals("Incorrect UserI / password",exp.getMessage());
 	}
-	@Test
-	public void AssignTestServiceTest1() {
-		User obj = new User();
-		obj.setIsAdmin(false);
-		obj.setUserId(11615915);
-		obj.setUserName("satish"); 
-		obj.setUserPassword("Abc-123");
-		AccessUserIdRepo.putUserObject(obj);
-		test obj1 = new test();
-		BigInteger testId=new BigInteger("123456");
-		obj1.setTestId(testId);
-		AccessTestRepo.putTestObject(obj1);
-		AssignTestService.assignTest((long) 11615915, testId);
-		assertEquals(testId,AccessUserRepo.getTestId(11615915));
-	}
-	@Test
-	public void AssignTestServiceTest2() {
-		User obj = new User();
-		obj.setIsAdmin(false);
-		obj.setUserId(11615915);
-		obj.setUserName("satish"); 
-		obj.setUserPassword("Abc-123");
-		AccessUserIdRepo.putUserObject(obj);
-		test obj1 = new test();
-		BigInteger testId=new BigInteger("123456");
-		obj1.setTestId(testId);
-		AccessTestRepo.putTestObject(obj1);
-		AssignTestService.assignTest((long) 11615915, testId);
-		assertNotEquals(new BigInteger("12223"),AccessUserRepo.getTestId(11615915));
-	}
+	
 }

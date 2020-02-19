@@ -18,6 +18,7 @@ public class AccessUserRepo {
 	}
 	public static void putData() {
 		User_Rep.putData((long)11605004,new BigInteger("123456"));
+		User_Rep.putData((long)11604993,new BigInteger("112233"));
 	}
 	
 }
